@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Setono\EasyadminEditorjsBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-final class SetonoEasyadminEditorjsBundle extends Bundle
+/**
+ * @psalm-suppress DeprecatedInterface
+ */
+final class SetonoEasyadminEditorjsBundle extends AbstractBundle
 {
 }
