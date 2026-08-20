@@ -9,6 +9,7 @@ use Setono\EasyadminEditorjsBundle\DependencyInjection\SetonoEasyadminEditorjsEx
 
 final class SetonoEasyadminEditorjsExtensionTest extends AbstractExtensionTestCase
 {
+    #[\Override]
     protected function getContainerExtensions(): array
     {
         return [
@@ -16,10 +17,7 @@ final class SetonoEasyadminEditorjsExtensionTest extends AbstractExtensionTestCa
         ];
     }
 
-    /**
-     * @test
-     */
-    public function after_loading_the_correct_parameter_has_been_set(): void
+    public function testAfterLoadingTheCorrectParameterHasBeenSet(): void
     {
         $this->load();
 

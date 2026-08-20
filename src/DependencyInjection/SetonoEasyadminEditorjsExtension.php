@@ -7,10 +7,11 @@ namespace Setono\EasyadminEditorjsBundle\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class SetonoEasyadminEditorjsExtension extends Extension
 {
+    #[\Override]
     public function load(array $configs, ContainerBuilder $container): void
     {
         /**
@@ -19,7 +20,7 @@ final class SetonoEasyadminEditorjsExtension extends Extension
          * @var array{tools: array{image: array{upload_directory: string, upload_path: string, upload_image_by_file_route: string, upload_image_by_url_route: string}}} $config
          */
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         $container->setParameter('setono_easyadmin_editorjs.tools', $config['tools']);
         $container->setParameter('setono_easyadmin_editorjs.tools.image.upload_directory', $config['tools']['image']['upload_directory']);
@@ -27,6 +28,6 @@ final class SetonoEasyadminEditorjsExtension extends Extension
         $container->setParameter('setono_easyadmin_editorjs.tools.image.upload_image_by_file_route', $config['tools']['image']['upload_image_by_file_route']);
         $container->setParameter('setono_easyadmin_editorjs.tools.image.upload_image_by_url_route', $config['tools']['image']['upload_image_by_url_route']);
 
-        $loader->load('services.xml');
+        $loader->load('services.yaml');
     }
 }

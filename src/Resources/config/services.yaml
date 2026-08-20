@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../../vendor/symfony/dependency-injection/Loader/schema/services.schema.json
+services:
+    setono_easyadmin_editorjs.controller.upload_image:
+        class: Setono\EasyadminEditorjsBundle\Controller\UploadImageController
+        arguments:
+            - '@slugger'
+            - '@filesystem'
+            - '@mime_types'
+            - '%setono_easyadmin_editorjs.tools.image.upload_directory%'
+            - '%setono_easyadmin_editorjs.tools.image.upload_path%'
+    
+    setono_easyadmin_editorjs.field_configurator.editor_js:
+        class: Setono\EasyadminEditorjsBundle\Field\Configurator\EditorJSConfigurator
+        tags:
+            - { name: 'ea.field_configurator' }
+        arguments:
+            - '@router'
+            - '%setono_easyadmin_editorjs.tools.image.upload_image_by_file_route%'
+            - '%setono_easyadmin_editorjs.tools.image.upload_image_by_url_route%'
+    
+    setono_easyadmin_editorjs.twig.extension:
+        class: Setono\EasyadminEditorjsBundle\Twig\Extension
+        tags:
+            - { name: "twig.runtime" }
+
+    setono_easyadmin_editorjs.twig.runtime:
+        class: Setono\EasyadminEditorjsBundle\Twig\Runtime
+        tags:
+            - { name: "twig.runtime" }
+        arguments:
+            - '@setono_editorjs.parser'
+            - '@setono_editorjs.renderer'

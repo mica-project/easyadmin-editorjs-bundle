@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Setono\EasyadminEditorjsBundle\Controller;
 
+use JsonException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -50,7 +51,7 @@ final class UploadImageController
 
         try {
             $data = json_decode($json, true, 512, \JSON_THROW_ON_ERROR);
-        } catch (\JsonException) {
+        } catch (JsonException) {
             return self::createFailedResponse('The given data could not be decoded');
         }
 
@@ -59,6 +60,10 @@ final class UploadImageController
         }
 
         $image = file_get_contents($data['url']);
+        if ($image === false) {
+            return self::createFailedResponse('The image could not be read');
+        }
+
         $temporaryFilename = $this->filesystem->tempnam($this->uploadDirectory, 'image');
         $this->filesystem->dumpFile($temporaryFilename, $image);
 

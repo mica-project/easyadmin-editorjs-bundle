@@ -11,30 +11,31 @@
     ],
     "require": {
         "php": ">=8.1",
-        "easycorp/easyadmin-bundle": "^4.0",
-        "setono/editorjs-bundle": "^1.0",
-        "setono/editorjs-php": "^1.0",
-        "setono/html-element": "^1.0@alpha",
-        "symfony/config": "^6.0",
-        "symfony/dependency-injection": "^6.0",
-        "symfony/filesystem": "^6.0",
-        "symfony/form": "^6.0",
-        "symfony/http-foundation": "^6.0",
-        "symfony/http-kernel": "^6.0",
-        "symfony/mime": "^6.0",
-        "symfony/routing": "^6.0",
-        "symfony/string": "^6.0",
-        "twig/twig": "^3.7",
-        "webmozart/assert": "^1.11"
+        "easycorp/easyadmin-bundle": ">=4.0",
+        "setono/editorjs-bundle": ">=1.0",
+        "setono/editorjs-php": ">=1.0",
+        "setono/html-element": ">=1.0@alpha",
+        "symfony/config": ">=6.0",
+        "symfony/dependency-injection": ">=6.0",
+        "symfony/filesystem": ">=6.0",
+        "symfony/form": ">=6.0",
+        "symfony/http-foundation": ">=6.0",
+        "symfony/http-kernel": ">=6.0",
+        "symfony/mime": ">=6.0",
+        "symfony/routing": ">=6.0",
+        "symfony/string": ">=6.0",
+        "twig/twig": ">=3.7",
+        "webmozart/assert": ">=1.11"
     },
     "require-dev": {
-        "matthiasnoback/symfony-dependency-injection-test": "^4.3.1",
-        "nyholm/symfony-bundle-test": "^2.0",
-        "phpspec/prophecy-phpunit": "^2.0.2",
-        "phpunit/phpunit": "^9.6.10",
-        "psalm/plugin-phpunit": "^0.18.4",
-        "psalm/plugin-symfony": "^5.0.3",
-        "setono/code-quality-pack": "^2.4"
+        "matthiasnoback/symfony-dependency-injection-test": ">=4.3.1",
+        "nyholm/symfony-bundle-test": ">=2.0",
+        "phpspec/phpspec": "^8.3",
+        "phpspec/prophecy-phpunit": ">=2.0.2",
+        "phpunit/phpunit": ">=9.6.10",
+        "psalm/plugin-phpunit": ">=0.18.4",
+        "psalm/plugin-symfony": ">=5.0.3",
+        "setono/code-quality-pack": ">=2.4"
     },
     "prefer-stable": true,
     "autoload": {
@@ -60,6 +61,6 @@
         "check-style": "ecs check",
         "fix-style": "ecs check --fix",
         "phpspec": "phpspec run",
-        "phpunit": "phpunit"
+        "phpunit": "phpunit tests"
     }
 }

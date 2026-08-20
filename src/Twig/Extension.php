@@ -12,6 +12,7 @@ final class Extension extends AbstractExtension
     /**
      * @return list<TwigFilter>
      */
+    #[\Override]
     public function getFilters(): array
     {
         return [

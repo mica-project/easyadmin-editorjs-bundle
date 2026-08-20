@@ -20,11 +20,13 @@ final class EditorJSConfigurator implements FieldConfiguratorInterface
     ) {
     }
 
+    #[\Override]
     public function supports(FieldDto $field, EntityDto $entityDto): bool
     {
         return EditorJSField::class === $field->getFieldFqcn();
     }
 
+    #[\Override]
     public function configure(FieldDto $field, EntityDto $entityDto, AdminContext $context): void
     {
         /** @var array{tools: array{image: array{config: array{endpoints: array{byFile: string, byUrl: string}}}}} $config */

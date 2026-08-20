@@ -7,6 +7,7 @@ namespace Setono\EasyadminEditorjsBundle\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
 use Setono\EasyadminEditorjsBundle\Form\Type\EditorJSType;
+use Symfony\Contracts\Translation\TranslatableInterface;
 use Webmozart\Assert\Assert;
 
 final class EditorJSField implements FieldInterface
@@ -15,7 +16,8 @@ final class EditorJSField implements FieldInterface
 
     public const OPTION_EDITORJS_CONFIG = 'editorjsConfig';
 
-    public static function new(string $propertyName, ?string $label = null): self
+    #[\Override]
+    public static function new(string $propertyName, string|TranslatableInterface|bool|null $label = null): self
     {
         return (new self())
             ->setProperty($propertyName)
